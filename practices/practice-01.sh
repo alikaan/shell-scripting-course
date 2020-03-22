@@ -28,7 +28,7 @@ do
 	echo $ANIMAL
 done
 
-if [ [ -n $1 ] && [ ${#1} -gt 1 ] ]
+if [ -n $1 ] && [ ${#1} -gt 1 ]
 then
 	INPUT=$1
 else
@@ -48,3 +48,17 @@ else
 fi
 
 ls -l
+
+HOST="google.com"
+
+ping -c 1 $HOST
+
+RETURN_CODE=$?
+if [ "$RETURN_CODE" -eq "0" ]
+then
+	echo "$HOST reacheable."
+	exit 0
+else
+	echo "$HOST unreachable."
+	exit 1
+fi
